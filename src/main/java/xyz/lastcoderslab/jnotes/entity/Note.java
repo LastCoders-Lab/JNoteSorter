@@ -1,9 +1,10 @@
 package xyz.lastcoderslab.jnotes.entity;
+import java.time.LocalDateTime;
 import java.util.Date;
 public class Note implements Comparable<Note>{
     private String title;
     private Integer number;
-    private Date date;
+    private LocalDateTime date;
     private Note (Builder builder) {
         this.title = builder.title;
         this.number = builder.number;
@@ -12,8 +13,8 @@ public class Note implements Comparable<Note>{
     public static class Builder {
         private String title;
         private Integer number;
-        private Date date;
-        public Builder(String title, Integer number, Date date) {
+        private LocalDateTime date;
+        public Builder(String title, Integer number, LocalDateTime date) {
             this.title = title;
             this.number = number;
             this.date = date;
@@ -26,7 +27,7 @@ public class Note implements Comparable<Note>{
             this.number = number;
             return this;
         }
-        public Builder date(Date date) {
+        public Builder date(LocalDateTime date) {
             this.date = date;
             return this;
         }
