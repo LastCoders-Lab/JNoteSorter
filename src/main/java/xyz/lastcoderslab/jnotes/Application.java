@@ -1,8 +1,6 @@
 package xyz.lastcoderslab.jnotes;
 
-import xyz.lastcoderslab.jnotes.command.ExitCommand;
-import xyz.lastcoderslab.jnotes.command.GenerateCommand;
-import xyz.lastcoderslab.jnotes.command.ICommand;
+import xyz.lastcoderslab.jnotes.command.*;
 import xyz.lastcoderslab.jnotes.util.Message;
 import xyz.lastcoderslab.jnotes.util.MessageType;
 import xyz.lastcoderslab.jnotes.util.TextColor;
@@ -20,6 +18,9 @@ public class Application {
     public void run(){
         // Для стратегии
         commands.put("/generate", new GenerateCommand());
+        commands.put("/load", new LoadCommand());
+        commands.put("/save", new SaveCommand());
+        commands.put("/sort", new SortCommand());
         commands.put("/exit", new ExitCommand());
 
         System.out.println(TextColor.ORANGE + "|~~~~~~~~~~~~~~~~~~~~~~~|");
@@ -64,7 +65,7 @@ public class Application {
     public String help() {
         String s =Message.get("Доступные команды:\n", MessageType.MAIN);
         for(String cmdKey : commands.keySet()) {
-            s += commands.get(cmdKey).help();
+            s += commands.get(cmdKey).help() + "\n";
         }
         return s;
     }

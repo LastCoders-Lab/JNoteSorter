@@ -36,7 +36,7 @@ public class GenerateCommand implements ICommand{
     @Override
     public String help() {
         String help = TextColor.BOLD + "" + TextColor.YEllOW + getName() + TextColor.RESET +
-                TextColor.BLUE + " [размерность]" + TextColor.RESET  +" - " + getDescription() + "\n";
+                TextColor.BLUE + " [размерность]" + TextColor.RESET  +" - " + getDescription();
         return help;
     }
 }
